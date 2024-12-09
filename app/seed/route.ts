@@ -102,24 +102,24 @@ async function seedRevenue() {
 }
 
 export async function GET() {
-  // return Response.json({
-  //   message:
-  //     'Uncomment this file and remove this line. You can delete this file when you are finished.',
-  // });
-  try {
-    console.log('Mehdiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii3');
-    await client.sql`BEGIN`;
-    await seedUsers();
-    await seedCustomers();
-    await seedInvoices();
-    await seedRevenue();
-    await client.sql`COMMIT`;
+  return Response.json({
+    message:
+      'Uncomment this file and remove this line. You can delete this file when you are finished.',
+  });
+  // try {
+  //   console.log('Mehdiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii3');
+  //   await client.sql`BEGIN`;
+  //   await seedUsers();
+  //   await seedCustomers();
+  //   await seedInvoices();
+  //   await seedRevenue();
+  //   await client.sql`COMMIT`;
 
-    return Response.json({ message: 'Database seeded successfully' });
-  } catch (error) {
-    console.log('Mehdiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
-    console.error('Database seeding error:', error); // Ajoutez cette ligne
-    await client.sql`ROLLBACK`;
-    return Response.json({ error }, { status: 500 });
-  }
+  //   return Response.json({ message: 'Database seeded successfully' });
+  // } catch (error) {
+  //   console.log('Mehdiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
+  //   console.error('Database seeding error:', error); // Ajoutez cette ligne
+  //   await client.sql`ROLLBACK`;
+  //   return Response.json({ error }, { status: 500 });
+  // }
 }
